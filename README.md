@@ -4,16 +4,43 @@ Sample application to demonstrate running a Spring Boot application as an AWS La
 
 # AWS Lambda
 
-Build the code and deploy with AWS SAM.
+Build the code and deploy with AWS SAM. Using maven shade plugin.
 
-mvn clean package
+mvn clean package shade:shade
 
-aws cloudformation package --template-file sam.yaml --output-template-file target/output-sam.yaml --s3-bucket lambda-cfn
+    * AWS deploy için bucket oluştur. isim uniqiue olmalı (training-aws-spring-boot-lambda-201904)
+        aws s3 mb s3://training-aws-spring-boot-lambda-201904  --region us-east-1
+
+aws cloudformation package --template-file sam.yaml --output-template-file target/output-sam.yaml --s3-bucket training-aws-spring-boot-lambda-201904  --region us-east-1
  
-aws cloudformation deploy --template-file target/output-sam.yaml --stack-name spring-boot-lambda --capabilities CAPABILITY_IAM
+    * Aşağıdakini çalıştırmak için aws kullanıcısına cloudformation:CreateStack yetkisi verilmeli.
+    *    
+    Lambda Deploy için yeni bir policy oluşturulup kullanıcıya verilmeli. 
+    {
+    "Version": "2012-10-17",
+    "Statement": [
+    {
+    "Sid": "Stmt1449904348000",
+    "Effect": "Allow",
+    "Action": [
+    "cloudformation:CreateStack",
+    "cloudformation:CreateChangeSet",
+    "cloudformation:ListStacks",
+    "cloudformation:UpdateStack",
+    "cloudformation:DescribeChangeSet",
+    "cloudformation:ExecuteChangeSet"
+    ],
+    "Resource": [
+    "*"
+    ]
+    }
+    ]
+    }   
+    *
+    
+aws cloudformation deploy --template-file target/output-sam.yaml --stack-name training-aws-spring-boot-lambda-201904 --capabilities CAPABILITY_IAM --region us-east-1
  
-aws cloudformation describe-stacks --stack-name spring-boot-lambda
-
+aws cloudformation describe-stacks --stack-name training-aws-spring-boot-lambda-201904  --region us-east-1
 
 # Run
 
@@ -40,3 +67,4 @@ To build the image. First build the application, then build the docker image
 # Test
 
     curl http://localhost:8080/languages
+
