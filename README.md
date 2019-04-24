@@ -66,5 +66,24 @@ To build the image. First build the application, then build the docker image
     
 # Test
 
+    * spring boot local application için;
     curl http://localhost:8080/languages
+    
+    * aws için cloudformation a console bakıp, ilgili stack seçilerek deploy edilen adresi OUTPUT tabında görülebilir.
+    Ör: https://5xwfg03nt9.execute-api.us-east-1.amazonaws.com/Stage/languages
+    
+
+
+
+####### Kodda Yapılan Değişiklik Sonraı AWS Lambda için oluşturulan satck güncellenerek deploy yapılması
+ * Kod değişikliği sonrası;
+    mvn clean package shade:shade
+    
+ * Aws Function Listesine bakılıp ilgili fonksiyon seçilerek diğer komut çalışır.
+
+    aws lambda list-functions --region us-east-1
+
+ *  Aws function update
+ 
+    aws lambda update-function-code --function-name training-aws-spring-boot-LambdaSpringBootFunction-77JFUMJ29Z1S --zip-file fileb://target/spring-boot-lambda-1.0.0-SNAPSHOT.jar --region us-east-1
 

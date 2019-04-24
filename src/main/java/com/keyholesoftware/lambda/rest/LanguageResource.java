@@ -14,7 +14,7 @@ public class LanguageResource {
 
     @RequestMapping(path = "/languages", method = RequestMethod.GET)
     public List<Language> listLambdaLanguages() {
-        return Arrays.asList(new Language("node"), new Language("java"), new Language("python"));
+        return Arrays.asList(new Language("node"), new Language("java"), new Language("python"), new Language("Arduino"));
     }
 
 }
