@@ -1,4 +1,4 @@
-package com.keyholesoftware.lambda;
+package com.ft.training.aws.lambda;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package com.keyholesoftware.lambda.config;
+package com.ft.training.aws.lambda.config;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

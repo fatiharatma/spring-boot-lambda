@@ -87,3 +87,7 @@ To build the image. First build the application, then build the docker image
  
     aws lambda update-function-code --function-name training-aws-spring-boot-LambdaSpringBootFunction-77JFUMJ29Z1S --zip-file fileb://target/spring-boot-lambda-1.0.0-SNAPSHOT.jar --region us-east-1
 
+
+##### Lambda Uygulama Logları
+    * Cloudwatch dan Logs bölümüne girilip ilgili stacke girilip bakılabilir.
+    

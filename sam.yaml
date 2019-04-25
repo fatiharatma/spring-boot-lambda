@@ -6,7 +6,7 @@ Resources:
   LambdaSpringBootFunction:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: com.keyholesoftware.lambda.LambdaHandler::handleRequest
+      Handler: com.ft.training.aws.lambda.LambdaHandler::handleRequest
       Runtime: java8
       CodeUri: target/spring-boot-lambda-1.0.0-SNAPSHOT.jar
       MemorySize: 1512

@@ -1,4 +1,4 @@
-package com.keyholesoftware.lambda;
+package com.ft.training.aws.lambda;
 
 import java.io.IOException;
 import java.io.InputStream;

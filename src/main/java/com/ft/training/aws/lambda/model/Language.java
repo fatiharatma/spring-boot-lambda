@@ -1,4 +1,4 @@
-package com.keyholesoftware.lambda.model;
+package com.ft.training.aws.lambda.model;
 
 public class Language {
 
