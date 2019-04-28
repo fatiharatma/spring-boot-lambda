@@ -58,11 +58,11 @@ or
 To build the image. First build the application, then build the docker image
 
     mvn package -Dboot
-    docker build -t spring-boot-lambda .
+    docker build -t training-aws-spring-boot-lambda .
     
 ## Run
 
-    docker run --name spring-boot-lambda -p 8080:8080 -d spring-boot-lambda
+    docker run --name training-aws-spring-boot-lambda  -p 8080:8080 -d training-aws-spring-boot-lambda 
     
 # Test
 
@@ -79,13 +79,18 @@ To build the image. First build the application, then build the docker image
  * Kod değişikliği sonrası;
     mvn clean package shade:shade
     
+ * Sam.yaml dosyası değiştiriliyor ise tekrardan stack oluşturulmak gerekir, o yüzden update yerine yeniden
+ deploy işlemi yapılmalı.
+ 
+    
  * Aws Function Listesine bakılıp ilgili fonksiyon seçilerek diğer komut çalışır.
 
     aws lambda list-functions --region us-east-1
 
  *  Aws function update
  
-    aws lambda update-function-code --function-name training-aws-spring-boot-LambdaSpringBootFunction-77JFUMJ29Z1S --zip-file fileb://target/spring-boot-lambda-1.0.0-SNAPSHOT.jar --region us-east-1
+    
+    
 
 
 ##### Lambda Uygulama Logları
